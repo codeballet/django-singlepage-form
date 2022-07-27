@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Form</title>
+        <script src="{% static 'form/index.js' %}"></script>
+    </head>
+    <body>
+        <h1>Form for adding Entries</h1>
+        <button id="menu_form" class="menu" data-page="form">Form</button>
+        <button id="menu_entries" class="menu" data-page="entries">Entries</button>
+
+        <div id="form" class="pages">
+            <form action="{% url 'entry' %}" method="post">
+                {% csrf_token %}
+                <input name="entry" type="text" placeholder="Entry">
+                <input type="submit">
+            </form>
+        </div>
+        
+        <div id="entries" class="pages">
+            <ul>
+                {% for entry in entries %}
+                    <li>{{ entry }}</li>
+                {% empty %}
+                    <li>No entries</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </body>
+</html>
