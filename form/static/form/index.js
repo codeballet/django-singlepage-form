@@ -24,9 +24,7 @@ function colorMenu(id) {
 
 function hidePages() {
     const pages = document.querySelectorAll('.pages');
-    console.log(pages);
     for (let i = 0; i < pages.length; i++) {
-        console.log(pages[i]);
         pages[i].style.display = 'none';
     }
 }
