@@ -3,12 +3,17 @@
 <html lang="en">
     <head>
         <title>Form</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="{% static 'form/index.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'form/styles.css' %}">
     </head>
     <body>
-        <h1>Creating Entries</h1>
-        <button id="menu_form" class="menu" data-page="form">Form</button>
-        <button id="menu_entries" class="menu" data-page="entries">Entries</button>
+        <h1>Create and inspect Entries</h1>
+
+        <div id="nav">
+            <button id="menu_form" class="menu" data-page="form">Form</button>
+            <button id="menu_entries" class="menu" data-page="entries">Entries</button>
+        </div>
 
         <div id="form" class="pages">
             <form action="{% url 'entry' %}" method="post">

@@ -49,15 +49,20 @@ window.onpopstate = (event) => {
 document.addEventListener('DOMContentLoaded', () => {
     // hide entries
     hidePages();
+
     // show page in state
     showPage(history.state.page);
+
     // color the menu_form button
     colorMenu(`menu_${history.state.page}`);
-    // event listeners on menu buttons
+
+    // add event listeners on menu buttons
     document.querySelectorAll('.menu').forEach(button => {
         button.onclick = function () {
+            // set state.page according to button
             const page = this.dataset.page
             history.pushState({page: page}, "", `${page}`);
+
             showPage(page);
             colorMenu(this.id);
         }
